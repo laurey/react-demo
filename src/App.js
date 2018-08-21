@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import Loadable from 'react-loadable';
 import { Route, Link } from "react-router-dom";
 import asyncComponent from './components/AsyncComponent';
+import Loading from './components/LoadingComponent';
 import './App.scss';
 
-const BSRouter = asyncComponent(() => import("./components/BrowserHistory"));
+// const BSRouter = asyncComponent(() => import("./components/BrowserHistory"));
 const BasicExample = asyncComponent(() => import("./components/BasicExample"));
 const ParamsExample = asyncComponent(() => import("./components/ParamsExample"));
+
+const BSRouter = Loadable({
+  loader: () => import('./components/BrowserHistory'),
+  loading: Loading,
+});
 
 const Home = () => (
   <div>
