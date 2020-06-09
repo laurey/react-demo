@@ -1,18 +1,5 @@
-import React, { Component } from 'react';
-import Loadable from 'react-loadable';
-import { Route, Link } from "react-router-dom";
-import asyncComponent from './components/AsyncComponent';
-import Loading from './components/LoadingComponent';
-import './App.scss';
-
-// const BSRouter = asyncComponent(() => import("./components/BrowserHistory"));
-const BasicExample = asyncComponent(() => import("./components/BasicExample"));
-const ParamsExample = asyncComponent(() => import("./components/ParamsExample"));
-
-const BSRouter = Loadable({
-  loader: () => import('./components/BrowserHistory'),
-  loading: Loading,
-});
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 const Home = () => (
   <div>
@@ -20,28 +7,31 @@ const Home = () => (
   </div>
 );
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <BSRouter>
-          <div>
-            <p>root path contents: </p>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/basic">Basic</Link></li>
-              <li><Link to="/params">Params</Link></li>
-            </ul>
-            <hr/>
-            <p>sub path contents:</p>
-            <Route exact path="/" component={Home} />
-            <Route path="/basic" component={BasicExample} />
-            <Route path="/params" component={ParamsExample} />
-          </div>
-        </BSRouter>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      console.log("send request...");
+      const response = await fetch("/api/users");
+      const data = await response.json();
+      setUsers(data);
+    }
+
+    fetchUsers();
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>haha</h1>
+      <Home />
+      <ul>
+        {users.map((user) => {
+          return <li key={user.id}>{user.name}</li>;
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default App;
