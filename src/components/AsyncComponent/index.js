@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-export default function asyncComponent(importComponent) {
-  class AsyncComponent extends Component {
+export default function AsyncComponent(importComponent) {
+  class AsyncImportedComponent extends Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        component: null
+        component: null,
       };
     }
 
@@ -14,7 +14,7 @@ export default function asyncComponent(importComponent) {
       const { default: component } = await importComponent();
 
       this.setState({
-        component: component
+        component: component,
       });
     }
 
@@ -25,5 +25,5 @@ export default function asyncComponent(importComponent) {
     }
   }
 
-  return AsyncComponent;
+  return AsyncImportedComponent;
 }

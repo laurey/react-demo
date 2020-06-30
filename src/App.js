@@ -1,47 +1,38 @@
-import React, { Component } from 'react';
-import Loadable from 'react-loadable';
-import { Route, Link } from "react-router-dom";
-import asyncComponent from './components/AsyncComponent';
-import Loading from './components/LoadingComponent';
-import './App.scss';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Home from "./views/Home";
+import BasicDemo from "./views/BasicDemo";
+import NoMatch from "./components/NoMatch";
+import Header from "./components/Header";
+import Navigator from "./components/Navigator";
+import Footer from "./components/Footer";
+import Visualizer from "./components/Visualizer";
+import RCRouter from "./components/RCRouter";
+import "./style.css";
 
-// const BSRouter = asyncComponent(() => import("./components/BrowserHistory"));
-const BasicExample = asyncComponent(() => import("./components/BasicExample"));
-const ParamsExample = asyncComponent(() => import("./components/ParamsExample"));
-
-const BSRouter = Loadable({
-  loader: () => import('./components/BrowserHistory'),
-  loading: Loading,
-});
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <BSRouter>
-          <div>
-            <p>root path contents: </p>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/basic">Basic</Link></li>
-              <li><Link to="/params">Params</Link></li>
-            </ul>
-            <hr/>
-            <p>sub path contents:</p>
-            <Route exact path="/" component={Home} />
-            <Route path="/basic" component={BasicExample} />
-            <Route path="/params" component={ParamsExample} />
-          </div>
-        </BSRouter>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <RCRouter>
+      <Header>
+        <Navigator />
+      </Header>
+      <main>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/algo">
+            <Visualizer />
+          </Route>
+          <Route path="/basic">
+            <BasicDemo />
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </main>
+      <Footer />
+    </RCRouter>
+  );
 }
-
-export default App;
