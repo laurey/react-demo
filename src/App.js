@@ -8,6 +8,7 @@ import Navigator from "./components/Navigator";
 import Footer from "./components/Footer";
 import Visualizer from "./components/Visualizer";
 import RCRouter from "./components/RCRouter";
+import "./global.scss";
 import "./style.css";
 
 export default function App() {
