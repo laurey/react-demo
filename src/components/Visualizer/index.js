@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { getRandom } from "../../utils";
+import React, { useState, useEffect } from 'react';
+import { getRandom } from '../../utils';
 import {
   getHeapSortAnimations,
   getShellSortAnimations,
@@ -8,14 +8,14 @@ import {
   getBubbleSortAnimations,
   getSelectionSortAnimations,
   getInsertionSortAnimations,
-} from "../../sortingAlgo";
+} from '../../sortingAlgo';
 import {
   PRIMARY_COLOR,
   SECONDARY_COLOR,
   ANIMATION_SPEED_MS,
   NUMBER_OF_ARRAY_BARS,
-} from "./settings";
-import "./style.scss";
+} from './settings';
+import './style.scss';
 
 function isEqual(arrayOne, arrayTwo) {
   if (arrayOne.length !== arrayTwo.length) return false;
@@ -52,7 +52,7 @@ export default function Visualizer() {
     const { animations, sortedArray } = getMergeSortAnimations(defaultList);
     console.log(`sortedArray => ${sortedArray}`);
     for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.querySelectorAll(".array-bar");
+      const arrayBars = document.querySelectorAll('.array-bar');
       const isColorChange = i % 3 !== 2;
 
       if (isColorChange) {

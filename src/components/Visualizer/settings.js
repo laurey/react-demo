@@ -5,7 +5,7 @@ export const ANIMATION_SPEED_MS = 100;
 export const NUMBER_OF_ARRAY_BARS = 5;
 
 // This is the main color of the array bars.
-export const PRIMARY_COLOR = "coral";
+export const PRIMARY_COLOR = 'coral';
 
 // This is the color of array bars that are being compared throughout the animations.
-export const SECONDARY_COLOR = "deepskyblue";
+export const SECONDARY_COLOR = 'deepskyblue';

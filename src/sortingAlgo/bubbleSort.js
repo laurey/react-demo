@@ -1,7 +1,3 @@
-const bubbleSortHelper = (array, auxiliaryArray, animations) => {
-  return bubbleSort(array, auxiliaryArray, animations);
-};
-
 const bubbleSort = (array, auxiliaryArray, animations) => {
   const len = array.length;
   for (let i = 0; i < len - 1; i++) {
@@ -15,6 +11,10 @@ const bubbleSort = (array, auxiliaryArray, animations) => {
   }
 
   return array;
+};
+
+const bubbleSortHelper = (array, auxiliaryArray, animations) => {
+  return bubbleSort(array, auxiliaryArray, animations);
 };
 
 export default function getBubbleSortAnimations(source) {

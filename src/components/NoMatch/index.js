@@ -1,5 +1,5 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function NoMatch() {
   const location = useLocation();

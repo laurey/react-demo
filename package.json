@@ -2,19 +2,18 @@
   "name": "react-demo",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-loadable": "^5.5.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npm run lint:js && npm run lint:style",
+    "lint:js": "eslint --ext .js src __tests__",
+    "lint:style": "stylelint \"src/**/*.less\" --syntax less",
+    "lint-fix:js": "eslint --fix --ext .js src __tests__",
+    "lint-fix:less": "stylelint --fix 'src/**/*.less' --syntax less",
+    "lint-staged": "pretty-quick --staged",
+    "prettier": "prettier --write",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   },
   "browserslist": {
     "production": [
@@ -28,7 +27,27 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1"
+  },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-compat": "^3.8.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "sass": "^1.26.9"
   }
 }

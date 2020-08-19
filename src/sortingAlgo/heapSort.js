@@ -1,7 +1,7 @@
 const heapify = (array, heapSize, i) => {
   let largest = i;
-  let left = 2 * i + 1;
-  let right = 2 * i + 2;
+  const left = 2 * i + 1;
+  const right = 2 * i + 2;
 
   if (left < heapSize && array[left] > array[largest]) largest = left;
 
