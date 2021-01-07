@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import PPHOC from './PPHOC';
 
 const BasicExample = (props) => {
   const match = useRouteMatch();
@@ -12,10 +13,14 @@ const BasicExample = (props) => {
         <li>
           <Link to={`${match.url}/topics`}>Topics</Link>
         </li>
+        <li>
+          <Link to={`${match.url}/hoc`}>HOC</Link>
+        </li>
       </ul>
 
       <Route path={`${match.url}/about`} component={About} />
       <Route path={`${match.url}/topics`} component={Topics} />
+      <Route path={`${match.url}/hoc`} component={PPHOC} />
     </div>
   );
 };
