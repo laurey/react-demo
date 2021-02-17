@@ -8,6 +8,7 @@
   a {
     color: #000;
     font-size: 18px;
+    outline: none;
     text-decoration: none;
     line-height: 1;
   }
@@ -17,6 +18,16 @@
     color: white;
     background: var(--hilite-bg);
     transition: all 0.25s ease-out;
+  }
+
+  a.active {
+    &:hover {
+      background: var(--hilite-bg);
+    }
+  }
+
+  a:hover {
+    background-color: rgba(63, 204, 219, 0.5);
   }
 
   .logo {

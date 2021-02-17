@@ -1,23 +1,24 @@
 module.exports = {
+  parser: 'babel-eslint',
   parserOptions: {
+    // sourceType: 'module',
     ecmaFeatures: {
       jsx: true
-    },
-    parser: 'babel-eslint',
-    sourceType: 'module'
+    }
   },
-  extends: [
-    'airbnb',
-    'prettier',
-    'plugin:compat/recommended'
-    // 'plugin:react/recommended',
-  ],
+  // extends: [
+  //   'airbnb',
+  //   'prettier',
+  //   'plugin:compat/recommended',
+  //   'plugin:react/recommended'
+  // ],
   env: {
     es6: true,
+    jest: true,
     node: true,
     browser: true
   },
-  // plugins: ['react'],
+  plugins: ['react'],
   rules: {
     indent: [1, 2],
     quotes: [2, 'single'],
@@ -41,9 +42,11 @@ module.exports = {
     'no-restricted-syntax': [0],
     'no-use-before-define': [0],
     'react/jsx-no-bind': [0],
-    'react/prop-types': [0],
+    'react/prop-types': 0,
     'react/jsx-uses-react': 2,
     'react/jsx-uses-vars': 2,
+    'react/jsx-props-no-spreading': 0,
+    'react/destructuring-assignment': 0,
     'react/forbid-prop-types': [0],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prefer-stateless-function': [0],

@@ -6,7 +6,7 @@ export default function AsyncComponent(importComponent) {
       super(props);
 
       this.state = {
-        component: null,
+        component: null
       };
     }
 
@@ -14,13 +14,14 @@ export default function AsyncComponent(importComponent) {
       const { default: component } = await importComponent();
 
       this.setState({
-        component: component,
+        component
       });
     }
 
     render() {
-      const C = this.state.component;
+      const { component: C } = this.state;
 
+      // eslint-disable-next-line react/jsx-props-no-spreading
       return C ? <C {...this.props} /> : null;
     }
   }

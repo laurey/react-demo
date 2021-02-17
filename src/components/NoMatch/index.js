@@ -5,10 +5,10 @@ export default function NoMatch() {
   const location = useLocation();
   return (
     <div>
-      <p>
+      <p style={{ paddingBottom: 10 }}>
         No match for <code>{location.pathname}</code>
       </p>
-      <Link to="/" className="nav-link">
+      <Link replace to="/" className="nav-link">
         Return Home
       </Link>
     </div>

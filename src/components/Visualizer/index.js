@@ -7,13 +7,13 @@ import {
   getMergeSortAnimations,
   getBubbleSortAnimations,
   getSelectionSortAnimations,
-  getInsertionSortAnimations,
+  getInsertionSortAnimations
 } from '../../sortingAlgo';
 import {
   PRIMARY_COLOR,
   SECONDARY_COLOR,
   ANIMATION_SPEED_MS,
-  NUMBER_OF_ARRAY_BARS,
+  NUMBER_OF_ARRAY_BARS
 } from './settings';
 import './style.scss';
 
@@ -136,42 +136,46 @@ export default function Visualizer() {
         <div className="inner">
           {defaultList.map((value, idx) => (
             <div
+              key={value}
               className="array-bar"
-              key={idx}
               style={{
                 backgroundColor: PRIMARY_COLOR,
-                height: value,
+                height: value
               }}
-            ></div>
+            />
           ))}
         </div>
       </div>
       <div className="btn-container">
-        <button className="btn" onClick={resetList}>
+        <button type="button" className="btn" onClick={resetList}>
           Generate New Array
         </button>
-        <button className="btn" onClick={mergeSortHandler}>
+        <button type="button" className="btn" onClick={mergeSortHandler}>
           Merge Sort
         </button>
-        <button className="btn" onClick={quickSortHandler}>
+        <button type="button" className="btn" onClick={quickSortHandler}>
           Quick Sort
         </button>
-        <button className="btn" onClick={heapSortHandler}>
+        <button type="button" className="btn" onClick={heapSortHandler}>
           Heap Sort
         </button>
-        <button className="btn" onClick={bubbleSortHandler}>
+        <button type="button" className="btn" onClick={bubbleSortHandler}>
           Bubble Sort
         </button>
-        <button className="btn" onClick={insertionSortHandler}>
+        <button type="button" className="btn" onClick={insertionSortHandler}>
           Insertion Sort
         </button>
-        <button className="btn" onClick={selectionSortHandler}>
+        <button type="button" className="btn" onClick={selectionSortHandler}>
           Selection Sort
         </button>
-        <button className="btn" onClick={shellSortHandler}>
+        <button type="button" className="btn" onClick={shellSortHandler}>
           Shell Sort
         </button>
-        <button className="btn" onClick={(e) => testSortingAlgo()}>
+        <button
+          type="button"
+          className="btn"
+          onClick={(e) => testSortingAlgo()}
+        >
           Test Sorting Algorithms
         </button>
       </div>
